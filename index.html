@@ -36,7 +36,54 @@
     /* ---- Reset & Base ---- */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+<!-- Video Section - Liberia Football League -->
+    <section class="video-section">
+        <h2>🎬 Match Highlights</h2>
+        <div class="video-grid"></div>
+    </section>
 
+    <style>
+    .video-section {
+        padding: 40px 20px;
+        background: #0d1117;
+        text-align: center;
+    }
+    .video-section h2 {
+        font-family: 'Playfair Display', serif;
+        margin-bottom: 30px;
+        color: #e8e8e0;
+    }
+    .video-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 25px;
+    }
+    .video-grid video {
+        width: 320px;
+        max-width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        background: black;
+    }
+    </style>
+
+    <script>
+    const videos = ['video1.mp4', 'video2.mp4', 'video3.mp4'];
+    const container = document.querySelector('.video-grid');
+    videos.forEach(video => {
+        const vid = document.createElement('video');
+        vid.src = `videos/${video}`;
+        vid.autoplay = true;
+        vid.muted = true;
+        vid.loop = true;
+        vid.controls = true;
+        container.appendChild(vid);
+    });
+    </script>
+
+</body>
+</html>
     body {
         font-family: var(--font-body);
         font-size: 18px;
